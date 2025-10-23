@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap');
+@import './theme-colors.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Light Theme Colors */
+  --primary: #2563EB;
+  --primary-dark: #1D4ED8;
+  --primary-light: #3B82F6;
+  --accent: #7C3AED;
+  --accent-light: #8B5CF6;
+  --bg-light: #F9FAFB;
+  --bg-white: #FFFFFF;
+  --text-dark: #0F172A;
+  --subtext: #475569;
+  --subtext-light: #64748B;
+  --card-light: #FFFFFF;
+  --border-light: rgba(37, 99, 235, 0.1);
+  --gradient-1: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  --gradient-2: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 2px 8px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 4px 16px rgba(15, 23, 42, 0.12);
+  --shadow-xl: 0 8px 32px rgba(15, 23, 42, 0.16);
+  
+  /* Dark Theme Colors */
+  --primary-dark-theme: #60A5FA;
+  --accent-dark-theme: #8B5CF6;
+  --bg-dark: #0F172A;
+  --text-dark-theme: #F8FAFC;
+  --subtext-dark-theme: #94A3B8;
+  --card-dark-theme: #1E293B;
+  --border-dark-theme: rgba(96, 165, 250, 0.2);
+  --shadow-dark-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-dark-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-dark-lg: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+a, button, .clickable {
+  cursor: pointer;
+}
+
+body {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  background: var(--bg-light);
+  color: var(--text-dark);
+}
+
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark-theme);
+}
+
+body.light {
+  background: var(--bg-light);
+  color: var(--text-dark);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--primary);
+  color: white;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+section {
+  padding: 80px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+section + section {
+  margin-top: 32px;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 60px 24px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: var(--text-dark);
+  position: relative;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+body.dark h2 {
+  color: var(--text-dark-theme);
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+body.dark h2::after {
+  background: var(--accent-dark-theme);
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--subtext);
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+}
+
+body.dark .section-subtitle {
+  color: var(--subtext-dark-theme);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 60px 20px;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,136 @@
+.projects {
+  background: rgba(99, 102, 241, 0.03);
+}
+
+body.light .projects {
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2.5rem;
+  align-items: stretch;
+}
+
+.project-card {
+  background: var(--card-light);
+  padding: 2.5rem;
+  border-radius: 20px;
+  transition: var(--transition);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+body.dark .project-card {
+  background: var(--card-dark);
+  border-color: var(--border-dark);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+.project-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-doodle {
+  width: 100%;
+  height: 100%;
+  transition: var(--transition);
+}
+
+.project-card:hover .project-doodle {
+  transform: scale(1.1);
+}
+
+.project-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+body.dark .project-card h3 {
+  color: var(--text-light);
+}
+
+.project-card p {
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+  padding: 0.5rem 1rem;
+  background: rgba(99, 102, 241, 0.08);
+  border-radius: 24px;
+  font-size: 0.8rem;
+  color: var(--primary);
+  font-weight: 600;
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+body.dark .tech-tag {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-link {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem;
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 600;
+  transition: var(--transition);
+  font-size: 0.9rem;
+}
+
+.project-link:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.project-link svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}

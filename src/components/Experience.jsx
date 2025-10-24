@@ -1,47 +1,47 @@
-import './Experience.css'
+import "./Experience.css";
 
 const Experience = () => {
   const experiences = [
     {
-      role: 'Marketing Head',
-      company: 'BIT Placement Club',
-      period: 'Jul 2024 - Jul 2025',
+      role: "Marketing Head",
+      company: "BIT Placement Club",
+      period: "Jul 2024 - Jul 2025",
       description: [
-        'Led campus outreach campaigns to boost event participation and visibility',
-        'Developed marketing strategies for placement-related events',
-        'Coordinated with team members to execute successful campaigns'
-      ]
+        "Led campus outreach campaigns to boost event participation and visibility",
+        "Developed marketing strategies for placement-related events",
+        "Coordinated with team members to execute successful campaigns",
+      ],
     },
     {
-      role: 'Social Media Managing Head',
-      company: 'BIT Wellbeing Center - Vikasana',
-      period: 'Jun 2024 - Jul 2025',
+      role: "Social Media Managing Head",
+      company: "BIT Wellbeing Center - Vikasana",
+      period: "Jun 2024 - Jul 2025",
       description: [
-        'Designed and managed digital campaigns for mental health awareness',
-        'Created the club\'s official logo and branding materials',
-        'Increased social media engagement through strategic content planning'
-      ]
+        "Designed and managed digital campaigns for mental health awareness",
+        "Created the club's official logo and branding materials",
+        "Increased social media engagement through strategic content planning",
+      ],
     },
     {
-      role: 'Student Placement Coordinator',
-      company: 'Training & Placement Cell, BIT',
-      period: 'Dec 2023 - Present',
+      role: "Student Placement Coordinator",
+      company: "Training & Placement Cell, BIT",
+      period: "Dec 2023 - Present",
       description: [
-        'Coordinated interviews and maintained placement records',
-        'Assisted in recruitment processes for various companies',
-        'Facilitated communication between students and recruiters'
-      ]
-    }
-  ]
+        "Coordinated interviews and maintained placement records",
+        "Assisted in recruitment processes for various companies",
+        "Facilitated communication between students and recruiters",
+      ],
+    },
+  ];
 
   const education = [
     {
-      degree: 'B.Tech in Computer Science Engineering',
-      institution: 'Bangalore Institute of Technology',
-      period: '2022 - 2026',
-      description: 'CGPA: 8.25/10'
-    }
-  ]
+      degree: "B.Tech in Computer Science Engineering",
+      institution: "Bangalore Institute of Technology",
+      period: "2022 - 2026",
+      description: "CGPA: 8.25/10",
+    },
+  ];
 
   return (
     <section id="experience" className="experience">
@@ -87,7 +87,7 @@ const Experience = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Experience
+export default Experience;

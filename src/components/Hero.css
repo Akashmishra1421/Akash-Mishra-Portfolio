@@ -208,7 +208,7 @@ body.dark .hero-social a:hover {
   box-shadow: 0 20px 60px rgba(99, 102, 241, 0.4);
 }
 
-.doodle-avatar {
+.tech-workspace {
   width: 100%;
   height: 100%;
   display: flex;
@@ -217,12 +217,149 @@ body.dark .hero-social a:hover {
   animation: float 6s ease-in-out infinite;
 }
 
-.doodle-avatar svg {
+.workspace-svg {
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 10px 30px rgba(0, 123, 255, 0.3));
+  filter: drop-shadow(0 10px 40px rgba(217, 70, 239, 0.3));
 }
 
+body.dark .workspace-svg {
+  filter: drop-shadow(0 10px 40px rgba(240, 171, 252, 0.4));
+}
+
+/* Background circle pulse */
+.bg-circle {
+  animation: pulse 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.1; }
+  50% { transform: scale(1.05); opacity: 0.15; }
+}
+
+/* Avatar animations */
+.avatar {
+  animation: avatarBounce 3s ease-in-out infinite;
+}
+
+@keyframes avatarBounce {
+  0%, 100% { transform: translate(150px, 150px) translateY(0); }
+  50% { transform: translate(150px, 150px) translateY(-8px); }
+}
+
+/* Code lines typing animation */
+.code-line {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: typing 3s ease-in-out infinite;
+}
+
+.code-line:nth-child(1) { animation-delay: 0s; }
+.code-line:nth-child(2) { animation-delay: 0.3s; }
+.code-line:nth-child(3) { animation-delay: 0.6s; }
+.code-line:nth-child(4) { animation-delay: 0.9s; }
+.code-line:nth-child(5) { animation-delay: 1.2s; }
+.code-line:nth-child(6) { animation-delay: 1.5s; }
+
+@keyframes typing {
+  0%, 100% { stroke-dashoffset: 100; }
+  50%, 90% { stroke-dashoffset: 0; }
+}
+
+
+
+/* Particles twinkle */
+.particle {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.particle-1 { animation-delay: 0s; }
+.particle-2 { animation-delay: 0.3s; }
+.particle-3 { animation-delay: 0.6s; }
+.particle-4 { animation-delay: 0.9s; }
+.particle-5 { animation-delay: 1.2s; }
+.particle-6 { animation-delay: 1.5s; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+/* Monitor screen glow */
+.monitor {
+  animation: monitorGlow 3s ease-in-out infinite;
+}
+
+@keyframes monitorGlow {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(217, 70, 239, 0.4)); }
+  50% { filter: drop-shadow(0 0 20px rgba(217, 70, 239, 0.6)); }
+}
+
+/* Tech icons float */
+.icon {
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+.ai-icon { animation-delay: 0s; }
+.cloud-icon { animation-delay: 0.5s; }
+.db-icon { animation-delay: 1s; }
+.code-icon { animation-delay: 1.5s; }
+.terminal-icon { animation-delay: 2.5s; }
+
+@keyframes iconFloat {
+  0%, 100% { transform: translate(0, 0) translateY(0); }
+  50% { transform: translate(0, 0) translateY(-12px); }
+}
+
+/* Gear rotation */
+.gear-icon {
+  animation: iconFloat 3s ease-in-out infinite 2s, gearRotate 8s linear infinite;
+}
+
+@keyframes gearRotate {
+  from { transform: translate(250px, 80px) rotate(0deg); }
+  to { transform: translate(250px, 80px) rotate(360deg); }
+}
+
+/* Coffee steam */
+.steam {
+  animation: steamRise 2s ease-in-out infinite;
+}
+
+@keyframes steamRise {
+  0% { opacity: 0.8; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* Connection lines animation */
+.connect-line {
+  stroke-dasharray: 10;
+  animation: dash 15s linear infinite;
+}
+
+@keyframes dash {
+  to { stroke-dashoffset: -100; }
+}
+
+/* Particles float */
+.particle {
+  animation: particleFloat 3s ease-in-out infinite;
+}
+
+.p1 { animation-delay: 0s; }
+.p2 { animation-delay: 0.5s; }
+.p3 { animation-delay: 1s; }
+.p4 { animation-delay: 1.5s; }
+.p5 { animation-delay: 2s; }
+.p6 { animation-delay: 2.5s; }
+
+@keyframes particleFloat {
+  0%, 100% { opacity: 0.4; transform: translateY(0) scale(1); }
+  50% { opacity: 1; transform: translateY(-15px) scale(1.3); }
+}
+
+/* Float animation for entire illustration */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-20px); }

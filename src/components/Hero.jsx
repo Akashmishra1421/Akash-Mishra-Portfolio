@@ -65,23 +65,140 @@ const Hero = () => {
         </div>
         <div className="hero-image">
           <div className="image-wrapper">
-            <div className="doodle-avatar">
-              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <div className="tech-workspace">
+              <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" className="workspace-svg">
                 <defs>
-                  <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style={{stopColor: '#007bff', stopOpacity: 1}} />
-                    <stop offset="100%" style={{stopColor: '#6366f1', stopOpacity: 1}} />
+                  <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style={{stopColor: '#D946EF', stopOpacity: 1}} />
+                    <stop offset="100%" style={{stopColor: '#C026D3', stopOpacity: 1}} />
+                  </linearGradient>
+                  <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style={{stopColor: '#14B8A6', stopOpacity: 1}} />
+                    <stop offset="100%" style={{stopColor: '#2DD4BF', stopOpacity: 1}} />
                   </linearGradient>
                 </defs>
-                <circle cx="100" cy="100" r="80" fill="url(#grad1)" opacity="0.2"/>
-                <path d="M60,80 Q100,60 140,80" stroke="#007bff" strokeWidth="3" fill="none"/>
-                <circle cx="75" cy="85" r="8" fill="#007bff"/>
-                <circle cx="125" cy="85" r="8" fill="#007bff"/>
-                <path d="M70,120 Q100,140 130,120" stroke="#007bff" strokeWidth="3" fill="none"/>
-                <path d="M40,60 L50,50 M160,60 L150,50" stroke="#007bff" strokeWidth="2" fill="none"/>
-                <circle cx="100" cy="40" r="5" fill="#6366f1"/>
-                <circle cx="180" cy="100" r="3" fill="#007bff"/>
-                <circle cx="20" cy="100" r="3" fill="#007bff"/>
+
+                {/* Background */}
+                <rect width="500" height="500" fill="transparent"/>
+                <circle cx="250" cy="250" r="200" fill="url(#primaryGrad)" opacity="0.05" className="bg-circle"/>
+
+                {/* Main Monitor/Screen */}
+                <g className="monitor">
+                  <rect x="120" y="150" width="260" height="180" rx="8" fill="url(#primaryGrad)" opacity="0.9"/>
+                  <rect x="130" y="160" width="240" height="150" rx="4" fill="#1C1917"/>
+                  
+                  {/* Code Editor Interface */}
+                  <g className="code-editor">
+                    {/* Window controls */}
+                    <circle cx="140" cy="170" r="4" fill="#FF5F56"/>
+                    <circle cx="152" cy="170" r="4" fill="#FFBD2E"/>
+                    <circle cx="164" cy="170" r="4" fill="#27C93F"/>
+                    
+                    {/* Code lines */}
+                    <line x1="140" y1="190" x2="200" y2="190" stroke="#D946EF" strokeWidth="2" className="code-line"/>
+                    <line x1="140" y1="200" x2="280" y2="200" stroke="#14B8A6" strokeWidth="2" className="code-line"/>
+                    <line x1="140" y1="210" x2="240" y2="210" stroke="#D946EF" strokeWidth="2" className="code-line"/>
+                    <line x1="140" y1="220" x2="300" y2="220" stroke="#14B8A6" strokeWidth="2" className="code-line"/>
+                    <line x1="140" y1="230" x2="220" y2="230" stroke="#D946EF" strokeWidth="2" className="code-line"/>
+                    <line x1="140" y1="240" x2="270" y2="240" stroke="#14B8A6" strokeWidth="2" className="code-line"/>
+                    <line x1="140" y1="250" x2="250" y2="250" stroke="#D946EF" strokeWidth="2" className="code-line"/>
+                    <line x1="140" y1="260" x2="290" y2="260" stroke="#14B8A6" strokeWidth="2" className="code-line"/>
+                    <line x1="140" y1="270" x2="230" y2="270" stroke="#D946EF" strokeWidth="2" className="code-line"/>
+                    <line x1="140" y1="280" x2="260" y2="280" stroke="#14B8A6" strokeWidth="2" className="code-line"/>
+                    <line x1="140" y1="290" x2="210" y2="290" stroke="#D946EF" strokeWidth="2" className="code-line"/>
+                  </g>
+                  
+                  {/* Monitor stand */}
+                  <rect x="230" y="330" width="40" height="30" fill="url(#primaryGrad)" opacity="0.8"/>
+                  <rect x="210" y="360" width="80" height="8" rx="4" fill="url(#primaryGrad)" opacity="0.8"/>
+                </g>
+
+                {/* Coffee Cup */}
+                <g className="coffee" transform="translate(100, 340)">
+                  <ellipse cx="0" cy="0" rx="20" ry="6" fill="url(#accentGrad)" opacity="0.8"/>
+                  <path d="M-20,0 L-18,-25 L18,-25 L20,0" fill="url(#accentGrad)" opacity="0.9"/>
+                  <path d="M20,-15 Q30,-15 30,-8 Q30,-1 20,-1" stroke="url(#accentGrad)" strokeWidth="3" fill="none"/>
+                  <path d="M-10,-20 Q-5,-18 0,-20" stroke="#14B8A6" strokeWidth="1.5" fill="none" className="steam"/>
+                  <path d="M0,-20 Q5,-18 10,-20" stroke="#14B8A6" strokeWidth="1.5" fill="none" className="steam"/>
+                </g>
+
+                {/* Floating Tech Icons */}
+                <g className="tech-icons">
+                  {/* AI Brain */}
+                  <g className="icon ai-icon" transform="translate(80, 100)">
+                    <circle r="30" fill="url(#accentGrad)" opacity="0.2"/>
+                    <path d="M-15,-5 Q-10,-15 0,-15 Q10,-15 15,-5 M-15,5 Q-10,15 0,15 Q10,15 15,5" 
+                          stroke="#14B8A6" strokeWidth="3" fill="none" strokeLinecap="round"/>
+                    <circle cx="-8" cy="-5" r="3" fill="#14B8A6"/>
+                    <circle cx="8" cy="-5" r="3" fill="#14B8A6"/>
+                    <circle cx="0" cy="5" r="3" fill="#14B8A6"/>
+                    <line x1="-8" y1="-5" x2="0" y2="5" stroke="#14B8A6" strokeWidth="2"/>
+                    <line x1="8" y1="-5" x2="0" y2="5" stroke="#14B8A6" strokeWidth="2"/>
+                  </g>
+
+                  {/* Cloud Computing */}
+                  <g className="icon cloud-icon" transform="translate(420, 120)">
+                    <circle r="30" fill="url(#accentGrad)" opacity="0.2"/>
+                    <path d="M-15,5 Q-20,-5 -10,-10 Q-5,-15 5,-10 Q15,-10 20,-5 Q25,0 15,5 Z" 
+                          fill="#14B8A6" opacity="0.9"/>
+                    <text x="-8" y="8" fill="white" fontSize="12" fontWeight="bold">☁</text>
+                  </g>
+
+                  {/* Database */}
+                  <g className="icon db-icon" transform="translate(420, 380)">
+                    <circle r="30" fill="url(#primaryGrad)" opacity="0.2"/>
+                    <ellipse cy="-10" rx="18" ry="6" fill="none" stroke="#D946EF" strokeWidth="3"/>
+                    <ellipse cy="0" rx="18" ry="6" fill="none" stroke="#D946EF" strokeWidth="3"/>
+                    <ellipse cy="10" rx="18" ry="6" fill="none" stroke="#D946EF" strokeWidth="3"/>
+                    <line x1="-18" y1="-10" x2="-18" y2="10" stroke="#D946EF" strokeWidth="3"/>
+                    <line x1="18" y1="-10" x2="18" y2="10" stroke="#D946EF" strokeWidth="3"/>
+                  </g>
+
+                  {/* Code Brackets */}
+                  <g className="icon code-icon" transform="translate(80, 380)">
+                    <circle r="30" fill="url(#primaryGrad)" opacity="0.2"/>
+                    <path d="M-10,-15 L-18,0 L-10,15" stroke="#D946EF" strokeWidth="3.5" fill="none" strokeLinecap="round"/>
+                    <path d="M10,-15 L18,0 L10,15" stroke="#D946EF" strokeWidth="3.5" fill="none" strokeLinecap="round"/>
+                    <line x1="-5" y1="-10" x2="5" y2="10" stroke="#D946EF" strokeWidth="3" strokeLinecap="round"/>
+                  </g>
+
+                  {/* Gear/Settings */}
+                  <g className="icon gear-icon" transform="translate(250, 80)">
+                    <circle r="25" fill="url(#accentGrad)" opacity="0.2"/>
+                    <circle r="15" fill="none" stroke="#14B8A6" strokeWidth="3"/>
+                    <circle r="7" fill="#14B8A6"/>
+                    <line x1="0" y1="-20" x2="0" y2="-15" stroke="#14B8A6" strokeWidth="3"/>
+                    <line x1="0" y1="15" x2="0" y2="20" stroke="#14B8A6" strokeWidth="3"/>
+                    <line x1="-20" y1="0" x2="-15" y2="0" stroke="#14B8A6" strokeWidth="3"/>
+                    <line x1="15" y1="0" x2="20" y2="0" stroke="#14B8A6" strokeWidth="3"/>
+                  </g>
+
+                  {/* Terminal */}
+                  <g className="icon terminal-icon" transform="translate(250, 420)">
+                    <circle r="25" fill="url(#primaryGrad)" opacity="0.2"/>
+                    <rect x="-15" y="-12" width="30" height="24" rx="2" fill="none" stroke="#D946EF" strokeWidth="2.5"/>
+                    <path d="M-10,-5 L-5,0 L-10,5" stroke="#D946EF" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+                    <line x1="0" y1="5" x2="10" y2="5" stroke="#D946EF" strokeWidth="2.5" strokeLinecap="round"/>
+                  </g>
+                </g>
+
+                {/* Connection Lines */}
+                <g className="connections" opacity="0.3">
+                  <line x1="110" y1="130" x2="200" y2="200" stroke="url(#accentGrad)" strokeWidth="2" strokeDasharray="5,5" className="connect-line"/>
+                  <line x1="390" y1="150" x2="320" y2="200" stroke="url(#accentGrad)" strokeWidth="2" strokeDasharray="5,5" className="connect-line"/>
+                  <line x1="110" y1="350" x2="200" y2="300" stroke="url(#primaryGrad)" strokeWidth="2" strokeDasharray="5,5" className="connect-line"/>
+                  <line x1="390" y1="350" x2="320" y2="300" stroke="url(#primaryGrad)" strokeWidth="2" strokeDasharray="5,5" className="connect-line"/>
+                </g>
+
+                {/* Floating Particles */}
+                <g className="particles">
+                  <circle cx="150" cy="200" r="3" fill="#D946EF" className="particle p1"/>
+                  <circle cx="350" cy="220" r="3" fill="#14B8A6" className="particle p2"/>
+                  <circle cx="180" cy="350" r="2" fill="#D946EF" className="particle p3"/>
+                  <circle cx="320" cy="370" r="2" fill="#14B8A6" className="particle p4"/>
+                  <circle cx="250" cy="150" r="2" fill="#D946EF" className="particle p5"/>
+                  <circle cx="250" cy="450" r="2" fill="#14B8A6" className="particle p6"/>
+                </g>
               </svg>
             </div>
           </div>

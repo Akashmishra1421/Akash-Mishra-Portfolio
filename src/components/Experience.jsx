@@ -38,7 +38,7 @@ const Experience = () => {
     {
       degree: 'B.Tech in Computer Science Engineering',
       institution: 'Bangalore Institute of Technology',
-      period: '2021 - 2025',
+      period: '2022 - 2026',
       description: 'CGPA: 8.25/10'
     }
   ]

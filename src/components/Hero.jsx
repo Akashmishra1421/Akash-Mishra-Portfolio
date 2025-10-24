@@ -76,128 +76,245 @@ const Hero = () => {
                     <stop offset="0%" style={{stopColor: '#14B8A6', stopOpacity: 1}} />
                     <stop offset="100%" style={{stopColor: '#2DD4BF', stopOpacity: 1}} />
                   </linearGradient>
+                  <linearGradient id="screenGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style={{stopColor: '#D946EF', stopOpacity: 0.3}} />
+                    <stop offset="100%" style={{stopColor: '#14B8A6', stopOpacity: 0.1}} />
+                  </linearGradient>
+                  <filter id="glow">
+                    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                    <feMerge>
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                  <filter id="shadow">
+                    <feDropShadow dx="0" dy="6" stdDeviation="6" floodOpacity="0.4"/>
+                  </filter>
                 </defs>
 
-                {/* Background */}
+                {/* Background Elements */}
                 <rect width="500" height="500" fill="transparent"/>
-                <circle cx="250" cy="250" r="200" fill="url(#primaryGrad)" opacity="0.05" className="bg-circle"/>
+                
+                {/* Animated Background Circles */}
+                <circle cx="250" cy="250" r="200" fill="url(#primaryGrad)" opacity="0.08" className="bg-circle"/>
+                <circle cx="250" cy="250" r="150" fill="url(#accentGrad)" opacity="0.05" className="bg-circle-2"/>
+                
+                {/* Grid Pattern */}
+                <g opacity="0.1" className="grid-pattern">
+                  <line x1="0" y1="125" x2="500" y2="125" stroke="#D946EF" strokeWidth="1"/>
+                  <line x1="0" y1="250" x2="500" y2="250" stroke="#14B8A6" strokeWidth="1"/>
+                  <line x1="0" y1="375" x2="500" y2="375" stroke="#D946EF" strokeWidth="1"/>
+                  <line x1="125" y1="0" x2="125" y2="500" stroke="#14B8A6" strokeWidth="1"/>
+                  <line x1="250" y1="0" x2="250" y2="500" stroke="#D946EF" strokeWidth="1"/>
+                  <line x1="375" y1="0" x2="375" y2="500" stroke="#14B8A6" strokeWidth="1"/>
+                </g>
 
-                {/* Main Monitor/Screen */}
-                <g className="monitor">
-                  <rect x="120" y="150" width="260" height="180" rx="8" fill="url(#primaryGrad)" opacity="0.9"/>
-                  <rect x="130" y="160" width="240" height="150" rx="4" fill="#1C1917"/>
+                {/* Desk Surface */}
+                <rect x="40" y="350" width="420" height="10" rx="5" fill="url(#primaryGrad)" opacity="0.15"/>
+
+                {/* Main Monitor Setup */}
+                <g className="monitor" filter="url(#shadow)">
+                  {/* Monitor Frame */}
+                  <rect x="120" y="140" width="260" height="180" rx="10" fill="url(#primaryGrad)" opacity="0.95"/>
+                  <rect x="128" y="148" width="244" height="160" rx="6" fill="#0A0A0A"/>
                   
-                  {/* Code Editor Interface */}
+                  {/* Screen Glow Effect */}
+                  <rect x="128" y="148" width="244" height="160" rx="6" fill="url(#screenGlow)" opacity="0.6"/>
+                  
+                  {/* VS Code Interface */}
                   <g className="code-editor">
-                    {/* Window controls */}
-                    <circle cx="140" cy="170" r="4" fill="#FF5F56"/>
-                    <circle cx="152" cy="170" r="4" fill="#FFBD2E"/>
-                    <circle cx="164" cy="170" r="4" fill="#27C93F"/>
+                    {/* Title Bar */}
+                    <rect x="128" y="148" width="244" height="22" rx="6" fill="#1E1E1E"/>
                     
-                    {/* Code lines */}
-                    <line x1="140" y1="190" x2="200" y2="190" stroke="#D946EF" strokeWidth="2" className="code-line"/>
-                    <line x1="140" y1="200" x2="280" y2="200" stroke="#14B8A6" strokeWidth="2" className="code-line"/>
-                    <line x1="140" y1="210" x2="240" y2="210" stroke="#D946EF" strokeWidth="2" className="code-line"/>
-                    <line x1="140" y1="220" x2="300" y2="220" stroke="#14B8A6" strokeWidth="2" className="code-line"/>
-                    <line x1="140" y1="230" x2="220" y2="230" stroke="#D946EF" strokeWidth="2" className="code-line"/>
-                    <line x1="140" y1="240" x2="270" y2="240" stroke="#14B8A6" strokeWidth="2" className="code-line"/>
-                    <line x1="140" y1="250" x2="250" y2="250" stroke="#D946EF" strokeWidth="2" className="code-line"/>
-                    <line x1="140" y1="260" x2="290" y2="260" stroke="#14B8A6" strokeWidth="2" className="code-line"/>
-                    <line x1="140" y1="270" x2="230" y2="270" stroke="#D946EF" strokeWidth="2" className="code-line"/>
-                    <line x1="140" y1="280" x2="260" y2="280" stroke="#14B8A6" strokeWidth="2" className="code-line"/>
-                    <line x1="140" y1="290" x2="210" y2="290" stroke="#D946EF" strokeWidth="2" className="code-line"/>
+                    {/* Window Controls */}
+                    <circle cx="140" cy="159" r="4" fill="#FF5F57" className="window-btn"/>
+                    <circle cx="152" cy="159" r="4" fill="#FEBC2E" className="window-btn"/>
+                    <circle cx="164" cy="159" r="4" fill="#28C840" className="window-btn"/>
+                    
+                    {/* File Tab */}
+                    <rect x="185" y="153" width="70" height="13" rx="2" fill="#2D2D30"/>
+                    <text x="193" y="162" fill="#CCCCCC" fontSize="9" fontFamily="monospace">index.jsx</text>
+                    
+                    {/* Sidebar */}
+                    <rect x="128" y="170" width="35" height="138" fill="#252526"/>
+                    
+                    {/* Sidebar Icons */}
+                    <rect x="136" y="178" width="18" height="18" rx="2" fill="#D946EF" opacity="0.3"/>
+                    <rect x="136" y="204" width="18" height="18" rx="2" fill="#14B8A6" opacity="0.2"/>
+                    <rect x="136" y="230" width="18" height="18" rx="2" fill="#D946EF" opacity="0.2"/>
+                    
+                    {/* Code Area */}
+                    <g className="code-lines">
+                      {/* Line numbers */}
+                      <text x="170" y="186" fill="#858585" fontSize="10" fontFamily="monospace">1</text>
+                      <text x="170" y="198" fill="#858585" fontSize="10" fontFamily="monospace">2</text>
+                      <text x="170" y="210" fill="#858585" fontSize="10" fontFamily="monospace">3</text>
+                      <text x="170" y="222" fill="#858585" fontSize="10" fontFamily="monospace">4</text>
+                      <text x="170" y="234" fill="#858585" fontSize="10" fontFamily="monospace">5</text>
+                      <text x="170" y="246" fill="#858585" fontSize="10" fontFamily="monospace">6</text>
+                      <text x="170" y="258" fill="#858585" fontSize="10" fontFamily="monospace">7</text>
+                      <text x="170" y="270" fill="#858585" fontSize="10" fontFamily="monospace">8</text>
+                      <text x="170" y="282" fill="#858585" fontSize="10" fontFamily="monospace">9</text>
+                      
+                      {/* Code syntax */}
+                      <line x1="182" y1="182" x2="230" y2="182" stroke="#D946EF" strokeWidth="2" className="code-line" strokeLinecap="round"/>
+                      <line x1="182" y1="194" x2="290" y2="194" stroke="#14B8A6" strokeWidth="2" className="code-line" strokeLinecap="round"/>
+                      <line x1="194" y1="206" x2="260" y2="206" stroke="#D946EF" strokeWidth="2" className="code-line" strokeLinecap="round"/>
+                      <line x1="194" y1="218" x2="310" y2="218" stroke="#14B8A6" strokeWidth="2" className="code-line" strokeLinecap="round"/>
+                      <line x1="194" y1="230" x2="245" y2="230" stroke="#D946EF" strokeWidth="2" className="code-line" strokeLinecap="round"/>
+                      <line x1="182" y1="242" x2="280" y2="242" stroke="#14B8A6" strokeWidth="2" className="code-line" strokeLinecap="round"/>
+                      <line x1="194" y1="254" x2="295" y2="254" stroke="#D946EF" strokeWidth="2" className="code-line" strokeLinecap="round"/>
+                      <line x1="194" y1="266" x2="255" y2="266" stroke="#14B8A6" strokeWidth="2" className="code-line" strokeLinecap="round"/>
+                      <line x1="182" y1="278" x2="240" y2="278" stroke="#D946EF" strokeWidth="2" className="code-line" strokeLinecap="round"/>
+                      
+                      {/* Cursor */}
+                      <rect x="240" y="274" width="2" height="10" fill="#FFFFFF" className="cursor-blink"/>
+                    </g>
                   </g>
                   
-                  {/* Monitor stand */}
-                  <rect x="230" y="330" width="40" height="30" fill="url(#primaryGrad)" opacity="0.8"/>
-                  <rect x="210" y="360" width="80" height="8" rx="4" fill="url(#primaryGrad)" opacity="0.8"/>
+                  {/* Monitor Stand */}
+                  <rect x="230" y="320" width="40" height="30" fill="url(#primaryGrad)" opacity="0.85"/>
+                  <rect x="210" y="350" width="80" height="8" rx="4" fill="url(#primaryGrad)" opacity="0.85"/>
                 </g>
 
-                {/* Coffee Cup */}
-                <g className="coffee" transform="translate(100, 340)">
-                  <ellipse cx="0" cy="0" rx="20" ry="6" fill="url(#accentGrad)" opacity="0.8"/>
-                  <path d="M-20,0 L-18,-25 L18,-25 L20,0" fill="url(#accentGrad)" opacity="0.9"/>
-                  <path d="M20,-15 Q30,-15 30,-8 Q30,-1 20,-1" stroke="url(#accentGrad)" strokeWidth="3" fill="none"/>
-                  <path d="M-10,-20 Q-5,-18 0,-20" stroke="#14B8A6" strokeWidth="1.5" fill="none" className="steam"/>
-                  <path d="M0,-20 Q5,-18 10,-20" stroke="#14B8A6" strokeWidth="1.5" fill="none" className="steam"/>
+                {/* Laptop (Left Side) */}
+                <g className="laptop" transform="translate(50, 280)">
+                  <rect x="0" y="0" width="100" height="65" rx="5" fill="url(#accentGrad)" opacity="0.9" filter="url(#shadow)"/>
+                  <rect x="4" y="4" width="92" height="53" rx="3" fill="#0A0A0A"/>
+                  
+                  {/* Laptop Screen Content */}
+                  <line x1="12" y1="16" x2="50" y2="16" stroke="#14B8A6" strokeWidth="1.5" className="code-line"/>
+                  <line x1="12" y1="24" x2="68" y2="24" stroke="#D946EF" strokeWidth="1.5" className="code-line"/>
+                  <line x1="12" y1="32" x2="58" y2="32" stroke="#14B8A6" strokeWidth="1.5" className="code-line"/>
+                  <line x1="12" y1="40" x2="75" y2="40" stroke="#D946EF" strokeWidth="1.5" className="code-line"/>
+                  <line x1="12" y1="48" x2="54" y2="48" stroke="#14B8A6" strokeWidth="1.5" className="code-line"/>
+                  
+                  {/* Laptop Base */}
+                  <path d="M-8,65 L108,65 L100,73 L0,73 Z" fill="url(#accentGrad)" opacity="0.8"/>
                 </g>
 
-                {/* Floating Tech Icons */}
+                {/* Coffee Mug (Enhanced) */}
+                <g className="coffee" transform="translate(400, 305)" filter="url(#shadow)">
+                  <ellipse cx="0" cy="0" rx="20" ry="6" fill="url(#accentGrad)" opacity="0.9"/>
+                  <path d="M-20,0 L-18,-28 L18,-28 L20,0" fill="url(#accentGrad)" opacity="0.95"/>
+                  <ellipse cx="0" cy="-28" rx="18" ry="5" fill="#14B8A6" opacity="0.6"/>
+                  
+                  {/* Handle */}
+                  <path d="M20,-16 Q30,-16 30,-8 Q30,0 20,0" stroke="url(#accentGrad)" strokeWidth="3" fill="none" strokeLinecap="round"/>
+                  
+                  {/* Steam */}
+                  <path d="M-10,-26 Q-6,-32 -8,-38" stroke="#14B8A6" strokeWidth="1.5" fill="none" className="steam" strokeLinecap="round"/>
+                  <path d="M0,-26 Q4,-32 2,-38" stroke="#14B8A6" strokeWidth="1.5" fill="none" className="steam" strokeLinecap="round"/>
+                  <path d="M10,-26 Q14,-32 12,-38" stroke="#14B8A6" strokeWidth="1.5" fill="none" className="steam" strokeLinecap="round"/>
+                </g>
+
+                {/* Notebook/Notepad */}
+                <g className="notebook" transform="translate(350, 320)">
+                  <rect x="0" y="0" width="60" height="40" rx="3" fill="#D946EF" opacity="0.2" stroke="#D946EF" strokeWidth="2"/>
+                  <line x1="8" y1="12" x2="50" y2="12" stroke="#D946EF" strokeWidth="1.2" opacity="0.6"/>
+                  <line x1="8" y1="20" x2="46" y2="20" stroke="#D946EF" strokeWidth="1.2" opacity="0.6"/>
+                  <line x1="8" y1="28" x2="50" y2="28" stroke="#D946EF" strokeWidth="1.2" opacity="0.6"/>
+                  
+                  {/* Pen */}
+                  <line x1="55" y1="8" x2="68" y2="-5" stroke="#14B8A6" strokeWidth="2.5" strokeLinecap="round"/>
+                  <circle cx="68" cy="-5" r="1.5" fill="#14B8A6"/>
+                </g>
+
+
+                {/* Floating Tech Icons (Enhanced & Better Positioned) */}
                 <g className="tech-icons">
-                  {/* AI Brain */}
-                  <g className="icon ai-icon" transform="translate(80, 100)">
-                    <circle r="30" fill="url(#accentGrad)" opacity="0.2"/>
-                    <path d="M-15,-5 Q-10,-15 0,-15 Q10,-15 15,-5 M-15,5 Q-10,15 0,15 Q10,15 15,5" 
-                          stroke="#14B8A6" strokeWidth="3" fill="none" strokeLinecap="round"/>
-                    <circle cx="-8" cy="-5" r="3" fill="#14B8A6"/>
-                    <circle cx="8" cy="-5" r="3" fill="#14B8A6"/>
-                    <circle cx="0" cy="5" r="3" fill="#14B8A6"/>
-                    <line x1="-8" y1="-5" x2="0" y2="5" stroke="#14B8A6" strokeWidth="2"/>
-                    <line x1="8" y1="-5" x2="0" y2="5" stroke="#14B8A6" strokeWidth="2"/>
+                  {/* React Logo - Top Left */}
+                  <g className="icon react-icon" transform="translate(80, 100)">
+                    <circle r="28" fill="url(#accentGrad)" opacity="0.15" className="icon-bg"/>
+                    <ellipse rx="20" ry="8" fill="none" stroke="#14B8A6" strokeWidth="2.5"/>
+                    <ellipse rx="20" ry="8" fill="none" stroke="#14B8A6" strokeWidth="2.5" transform="rotate(60)"/>
+                    <ellipse rx="20" ry="8" fill="none" stroke="#14B8A6" strokeWidth="2.5" transform="rotate(120)"/>
+                    <circle r="4" fill="#14B8A6"/>
                   </g>
 
-                  {/* Cloud Computing */}
-                  <g className="icon cloud-icon" transform="translate(420, 120)">
-                    <circle r="30" fill="url(#accentGrad)" opacity="0.2"/>
-                    <path d="M-15,5 Q-20,-5 -10,-10 Q-5,-15 5,-10 Q15,-10 20,-5 Q25,0 15,5 Z" 
-                          fill="#14B8A6" opacity="0.9"/>
-                    <text x="-8" y="8" fill="white" fontSize="12" fontWeight="bold">☁</text>
+                  {/* AI/ML Brain - Top Right */}
+                  <g className="icon ai-icon" transform="translate(420, 100)">
+                    <circle r="28" fill="url(#primaryGrad)" opacity="0.15" className="icon-bg"/>
+                    <path d="M-15,-6 Q-10,-16 0,-16 Q10,-16 15,-6 M-15,6 Q-10,16 0,16 Q10,16 15,6" 
+                          stroke="#D946EF" strokeWidth="3" fill="none" strokeLinecap="round"/>
+                    <circle cx="-8" cy="-6" r="3" fill="#D946EF" className="pulse"/>
+                    <circle cx="8" cy="-6" r="3" fill="#D946EF" className="pulse"/>
+                    <circle cx="0" cy="6" r="3" fill="#D946EF" className="pulse"/>
+                    <line x1="-8" y1="-6" x2="0" y2="6" stroke="#D946EF" strokeWidth="2"/>
+                    <line x1="8" y1="-6" x2="0" y2="6" stroke="#D946EF" strokeWidth="2"/>
+                    <line x1="-8" y1="-6" x2="8" y2="-6" stroke="#D946EF" strokeWidth="2"/>
                   </g>
 
-                  {/* Database */}
-                  <g className="icon db-icon" transform="translate(420, 380)">
-                    <circle r="30" fill="url(#primaryGrad)" opacity="0.2"/>
-                    <ellipse cy="-10" rx="18" ry="6" fill="none" stroke="#D946EF" strokeWidth="3"/>
-                    <ellipse cy="0" rx="18" ry="6" fill="none" stroke="#D946EF" strokeWidth="3"/>
-                    <ellipse cy="10" rx="18" ry="6" fill="none" stroke="#D946EF" strokeWidth="3"/>
-                    <line x1="-18" y1="-10" x2="-18" y2="10" stroke="#D946EF" strokeWidth="3"/>
-                    <line x1="18" y1="-10" x2="18" y2="10" stroke="#D946EF" strokeWidth="3"/>
+                  {/* Database - Bottom Right */}
+                  <g className="icon db-icon" transform="translate(420, 400)">
+                    <circle r="28" fill="url(#primaryGrad)" opacity="0.15" className="icon-bg"/>
+                    <ellipse cy="-10" rx="16" ry="6" fill="#D946EF" opacity="0.3"/>
+                    <ellipse cy="-10" rx="16" ry="6" fill="none" stroke="#D946EF" strokeWidth="2.5"/>
+                    <ellipse cy="0" rx="16" ry="6" fill="none" stroke="#D946EF" strokeWidth="2.5"/>
+                    <ellipse cy="10" rx="16" ry="6" fill="none" stroke="#D946EF" strokeWidth="2.5"/>
+                    <line x1="-16" y1="-10" x2="-16" y2="10" stroke="#D946EF" strokeWidth="2.5"/>
+                    <line x1="16" y1="-10" x2="16" y2="10" stroke="#D946EF" strokeWidth="2.5"/>
                   </g>
 
-                  {/* Code Brackets */}
-                  <g className="icon code-icon" transform="translate(80, 380)">
-                    <circle r="30" fill="url(#primaryGrad)" opacity="0.2"/>
-                    <path d="M-10,-15 L-18,0 L-10,15" stroke="#D946EF" strokeWidth="3.5" fill="none" strokeLinecap="round"/>
-                    <path d="M10,-15 L18,0 L10,15" stroke="#D946EF" strokeWidth="3.5" fill="none" strokeLinecap="round"/>
-                    <line x1="-5" y1="-10" x2="5" y2="10" stroke="#D946EF" strokeWidth="3" strokeLinecap="round"/>
+                  {/* Code Brackets - Bottom Left */}
+                  <g className="icon code-icon" transform="translate(80, 400)">
+                    <circle r="28" fill="url(#accentGrad)" opacity="0.15" className="icon-bg"/>
+                    <path d="M-10,-15 L-18,0 L-10,15" stroke="#14B8A6" strokeWidth="3.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M10,-15 L18,0 L10,15" stroke="#14B8A6" strokeWidth="3.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                    <line x1="-5" y1="-10" x2="5" y2="10" stroke="#14B8A6" strokeWidth="3" strokeLinecap="round"/>
                   </g>
 
-                  {/* Gear/Settings */}
-                  <g className="icon gear-icon" transform="translate(250, 80)">
-                    <circle r="25" fill="url(#accentGrad)" opacity="0.2"/>
-                    <circle r="15" fill="none" stroke="#14B8A6" strokeWidth="3"/>
-                    <circle r="7" fill="#14B8A6"/>
-                    <line x1="0" y1="-20" x2="0" y2="-15" stroke="#14B8A6" strokeWidth="3"/>
-                    <line x1="0" y1="15" x2="0" y2="20" stroke="#14B8A6" strokeWidth="3"/>
-                    <line x1="-20" y1="0" x2="-15" y2="0" stroke="#14B8A6" strokeWidth="3"/>
-                    <line x1="15" y1="0" x2="20" y2="0" stroke="#14B8A6" strokeWidth="3"/>
+                  {/* API/Network - Top Center */}
+                  <g className="icon api-icon" transform="translate(250, 80)">
+                    <circle r="25" fill="url(#accentGrad)" opacity="0.15" className="icon-bg"/>
+                    <circle r="5" fill="#14B8A6"/>
+                    <circle cx="-12" cy="-12" r="4" fill="#14B8A6" opacity="0.8"/>
+                    <circle cx="12" cy="-12" r="4" fill="#14B8A6" opacity="0.8"/>
+                    <circle cx="-12" cy="12" r="4" fill="#14B8A6" opacity="0.8"/>
+                    <circle cx="12" cy="12" r="4" fill="#14B8A6" opacity="0.8"/>
+                    <line x1="0" y1="0" x2="-12" y2="-12" stroke="#14B8A6" strokeWidth="2"/>
+                    <line x1="0" y1="0" x2="12" y2="-12" stroke="#14B8A6" strokeWidth="2"/>
+                    <line x1="0" y1="0" x2="-12" y2="12" stroke="#14B8A6" strokeWidth="2"/>
+                    <line x1="0" y1="0" x2="12" y2="12" stroke="#14B8A6" strokeWidth="2"/>
                   </g>
 
-                  {/* Terminal */}
+                  {/* Terminal - Bottom Center */}
                   <g className="icon terminal-icon" transform="translate(250, 420)">
-                    <circle r="25" fill="url(#primaryGrad)" opacity="0.2"/>
+                    <circle r="25" fill="url(#primaryGrad)" opacity="0.15" className="icon-bg"/>
                     <rect x="-15" y="-12" width="30" height="24" rx="2" fill="none" stroke="#D946EF" strokeWidth="2.5"/>
-                    <path d="M-10,-5 L-5,0 L-10,5" stroke="#D946EF" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+                    <path d="M-10,-5 L-5,0 L-10,5" stroke="#D946EF" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
                     <line x1="0" y1="5" x2="10" y2="5" stroke="#D946EF" strokeWidth="2.5" strokeLinecap="round"/>
                   </g>
                 </g>
 
-                {/* Connection Lines */}
+                {/* Connection Lines (Enhanced) */}
                 <g className="connections" opacity="0.3">
-                  <line x1="110" y1="130" x2="200" y2="200" stroke="url(#accentGrad)" strokeWidth="2" strokeDasharray="5,5" className="connect-line"/>
-                  <line x1="390" y1="150" x2="320" y2="200" stroke="url(#accentGrad)" strokeWidth="2" strokeDasharray="5,5" className="connect-line"/>
-                  <line x1="110" y1="350" x2="200" y2="300" stroke="url(#primaryGrad)" strokeWidth="2" strokeDasharray="5,5" className="connect-line"/>
-                  <line x1="390" y1="350" x2="320" y2="300" stroke="url(#primaryGrad)" strokeWidth="2" strokeDasharray="5,5" className="connect-line"/>
+                  <path d="M108 128 Q140 150 160 170" stroke="url(#accentGrad)" strokeWidth="2" strokeDasharray="5,3" fill="none" className="connect-line"/>
+                  <path d="M392 128 Q360 150 340 170" stroke="url(#primaryGrad)" strokeWidth="2" strokeDasharray="5,3" fill="none" className="connect-line"/>
+                  <path d="M108 372 Q140 350 160 330" stroke="url(#accentGrad)" strokeWidth="2" strokeDasharray="5,3" fill="none" className="connect-line"/>
+                  <path d="M392 372 Q360 350 340 330" stroke="url(#primaryGrad)" strokeWidth="2" strokeDasharray="5,3" fill="none" className="connect-line"/>
+                  <path d="M250 105 Q230 125 210 145" stroke="url(#accentGrad)" strokeWidth="2" strokeDasharray="5,3" fill="none" className="connect-line"/>
+                  <path d="M250 395 Q270 375 290 355" stroke="url(#primaryGrad)" strokeWidth="2" strokeDasharray="5,3" fill="none" className="connect-line"/>
                 </g>
 
-                {/* Floating Particles */}
+                {/* Floating Particles (More Dynamic) */}
                 <g className="particles">
-                  <circle cx="150" cy="200" r="3" fill="#D946EF" className="particle p1"/>
-                  <circle cx="350" cy="220" r="3" fill="#14B8A6" className="particle p2"/>
-                  <circle cx="180" cy="350" r="2" fill="#D946EF" className="particle p3"/>
-                  <circle cx="320" cy="370" r="2" fill="#14B8A6" className="particle p4"/>
-                  <circle cx="250" cy="150" r="2" fill="#D946EF" className="particle p5"/>
-                  <circle cx="250" cy="450" r="2" fill="#14B8A6" className="particle p6"/>
+                  <circle cx="160" cy="200" r="3" fill="#D946EF" className="particle p1" opacity="0.8"/>
+                  <circle cx="340" cy="220" r="3" fill="#14B8A6" className="particle p2" opacity="0.8"/>
+                  <circle cx="180" cy="320" r="2.5" fill="#D946EF" className="particle p3" opacity="0.6"/>
+                  <circle cx="320" cy="340" r="2.5" fill="#14B8A6" className="particle p4" opacity="0.6"/>
+                  <circle cx="250" cy="150" r="2.5" fill="#D946EF" className="particle p5" opacity="0.7"/>
+                  <circle cx="250" cy="380" r="2.5" fill="#14B8A6" className="particle p6" opacity="0.7"/>
+                  <circle cx="130" cy="250" r="2" fill="#D946EF" className="particle p7" opacity="0.5"/>
+                  <circle cx="370" cy="270" r="2" fill="#14B8A6" className="particle p8" opacity="0.5"/>
+                </g>
+
+                {/* Data Flow Indicators */}
+                <g className="data-flow">
+                  <circle cx="200" cy="180" r="2.5" fill="#14B8A6" className="flow-dot d1"/>
+                  <circle cx="300" cy="190" r="2.5" fill="#D946EF" className="flow-dot d2"/>
+                  <circle cx="220" cy="320" r="2.5" fill="#14B8A6" className="flow-dot d3"/>
+                  <circle cx="280" cy="310" r="2.5" fill="#D946EF" className="flow-dot d4"/>
                 </g>
               </svg>
             </div>

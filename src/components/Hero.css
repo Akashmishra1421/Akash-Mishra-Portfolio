@@ -18,25 +18,25 @@
 }
 
 .hero-greeting {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 1.2rem;
-  color: var(--primary);
-  font-weight: 500;
+  color: var(--accent);
+  font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
 body.dark .hero-greeting {
-  color: var(--primary-dark-theme);
+  color: var(--accent-dark-theme);
 }
 
 .hero-name {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 4rem;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 1rem;
   color: var(--text-dark);
   line-height: 1.1;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
 }
 
 body.dark .hero-name {
@@ -44,7 +44,7 @@ body.dark .hero-name {
 }
 
 .hero-role {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 1.8rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
@@ -70,12 +70,13 @@ body.dark .hero-role {
 }
 
 .hero-description {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 2.5rem;
   color: var(--subtext);
   max-width: 600px;
+  font-weight: 400;
 }
 
 body.dark .hero-description {
@@ -90,38 +91,39 @@ body.dark .hero-description {
 }
 
 .btn {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   padding: 0.9rem 2.2rem;
-  border-radius: 8px;
+  border-radius: 10px;
   text-decoration: none;
   font-weight: 600;
   transition: var(--transition);
   display: inline-block;
   font-size: 1rem;
+  letter-spacing: -0.01em;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  background: linear-gradient(135deg, #D946EF 0%, #C026D3 100%);
   color: white;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 12px rgba(217, 70, 239, 0.35);
   border: none;
 }
 
 body.dark .btn-primary {
-  background: #3B82F6;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, #F0ABFC 0%, #E879F9 100%);
+  box-shadow: 0 4px 12px rgba(240, 171, 252, 0.4);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
-  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  box-shadow: 0 6px 20px rgba(217, 70, 239, 0.45);
+  background: linear-gradient(135deg, #C026D3 0%, #A21CAF 100%);
 }
 
 body.dark .btn-primary:hover {
-  background: #60A5FA;
+  background: linear-gradient(135deg, #E879F9 0%, #D946EF 100%);
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 6px 20px rgba(96, 165, 250, 0.5);
+  box-shadow: 0 6px 20px rgba(240, 171, 252, 0.5);
 }
 
 .btn-secondary {
@@ -159,24 +161,25 @@ body.dark .btn-secondary:hover {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(37, 99, 235, 0.1);
+  background: rgba(217, 70, 239, 0.1);
   color: var(--primary);
   transition: var(--transition);
 }
 
 body.dark .hero-social a {
-  background: rgba(96, 165, 250, 0.1);
+  background: rgba(240, 171, 252, 0.1);
   color: var(--primary-dark-theme);
 }
 
 .hero-social a:hover {
   background: var(--primary);
   color: white;
-  transform: translateY(-2px);
+  transform: translateY(-2px) rotate(5deg);
 }
 
 body.dark .hero-social a:hover {
   background: var(--primary-dark-theme);
+  color: var(--bg-dark);
 }
 
 .hero-social svg {

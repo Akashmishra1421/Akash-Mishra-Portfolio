@@ -31,15 +31,16 @@ body.dark .skill-category:hover {
 }
 
 .skill-category h3 {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
-  color: var(--primary);
+  color: var(--accent);
   font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 body.dark .skill-category h3 {
-  color: var(--primary-dark-theme);
+  color: var(--accent-dark-theme);
 }
 
 .skills-list {
@@ -60,9 +61,10 @@ body.dark .skill-category h3 {
 }
 
 .skill-name {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 0.95rem;
   color: var(--text-dark);
+  font-weight: 500;
 }
 
 body.dark .skill-name {
@@ -70,13 +72,13 @@ body.dark .skill-name {
 }
 
 .skill-percentage {
-  color: var(--primary);
+  color: var(--accent);
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 body.dark .skill-percentage {
-  color: var(--primary-dark-theme);
+  color: var(--accent-dark-theme);
 }
 
 .skill-bar {
@@ -93,14 +95,14 @@ body.dark .skill-bar {
 
 .skill-progress {
   height: 100%;
-  background: #3B82F6;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
   border-radius: 8px;
   transition: width 1s ease-out;
   animation: fillBar 1.5s ease-out;
 }
 
 body.dark .skill-progress {
-  background: #3B82F6;
+  background: linear-gradient(90deg, var(--accent-dark-theme) 0%, var(--accent) 100%);
 }
 
 @keyframes fillBar {

@@ -42,11 +42,11 @@ body.dark .theme-toggle:hover {
 
 /* Hero Section Colors */
 .hero-greeting {
-  color: var(--primary);
+  color: var(--accent);
 }
 
 body.dark .hero-greeting {
-  color: var(--primary-dark-theme);
+  color: var(--accent-dark-theme);
 }
 
 .hero-name {
@@ -189,22 +189,22 @@ body.dark .skill-category {
 }
 
 .skill-category:hover {
-  border-color: var(--primary);
+  border-color: var(--accent);
   transform: translateY(-2px) scale(1.02);
   box-shadow: var(--shadow-lg);
 }
 
 body.dark .skill-category:hover {
-  border-color: var(--primary-dark-theme);
+  border-color: var(--accent-dark-theme);
   box-shadow: var(--shadow-dark-lg);
 }
 
 .skill-category h3 {
-  color: var(--primary);
+  color: var(--accent);
 }
 
 body.dark .skill-category h3 {
-  color: var(--primary-dark-theme);
+  color: var(--accent-dark-theme);
 }
 
 .skill-name {
@@ -216,27 +216,27 @@ body.dark .skill-name {
 }
 
 .skill-percentage {
-  color: var(--primary);
+  color: var(--accent);
 }
 
 body.dark .skill-percentage {
-  color: var(--primary-dark-theme);
+  color: var(--accent-dark-theme);
 }
 
 .skill-bar {
-  background: #E5E7EB;
+  background: #E7E5E4;
 }
 
 body.dark .skill-bar {
-  background: rgba(96, 165, 250, 0.15);
+  background: rgba(94, 234, 212, 0.15);
 }
 
 .skill-progress {
-  background: var(--primary);
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
 }
 
 body.dark .skill-progress {
-  background: var(--primary-dark-theme);
+  background: linear-gradient(90deg, var(--accent-dark-theme) 0%, var(--accent) 100%);
 }
 
 /* Projects Section Colors */
@@ -378,11 +378,11 @@ body.dark .company {
 }
 
 .period {
-  color: var(--primary);
+  color: var(--accent);
 }
 
 body.dark .period {
-  color: var(--primary-dark-theme);
+  color: var(--accent-dark-theme);
 }
 
 .timeline-content li {
@@ -394,11 +394,11 @@ body.dark .timeline-content li {
 }
 
 .timeline-content li::before {
-  color: var(--primary);
+  color: var(--accent);
 }
 
 body.dark .timeline-content li::before {
-  color: var(--primary-dark-theme);
+  color: var(--accent-dark-theme);
 }
 
 /* Certifications Section Colors */

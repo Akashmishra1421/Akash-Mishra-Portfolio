@@ -18,11 +18,12 @@ body.dark .about {
 }
 
 .about-text p {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 1.05rem;
   line-height: 1.7;
   margin-bottom: 1.25rem;
   color: var(--text-dark);
+  font-weight: 400;
 }
 
 body.dark .about-text p {
@@ -93,7 +94,7 @@ body.dark .stat-icon {
 }
 
 .stat p {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
   margin: 0;
@@ -108,12 +109,13 @@ body.dark .stat p {
 .stat-detail {
   display: block;
   font-size: 0.85rem;
-  color: var(--subtext);
+  color: var(--accent);
   margin-top: 0.25rem;
+  font-weight: 600;
 }
 
 body.dark .stat-detail {
-  color: var(--subtext-dark-theme);
+  color: var(--accent-dark-theme);
 }
 
 .about-image {

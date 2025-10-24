@@ -5,15 +5,16 @@
 }
 
 .section-title {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 1.4rem;
   margin-bottom: 2rem;
-  color: var(--primary);
+  color: var(--accent);
   font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 body.dark .section-title {
-  color: var(--primary-dark-theme);
+  color: var(--accent-dark-theme);
 }
 
 .timeline {
@@ -28,11 +29,11 @@ body.dark .section-title {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: var(--primary);
+  background: linear-gradient(180deg, var(--accent) 0%, var(--primary) 100%);
 }
 
 body.dark .timeline::before {
-  background: var(--primary-dark-theme);
+  background: linear-gradient(180deg, var(--accent-dark-theme) 0%, var(--primary-dark-theme) 100%);
 }
 
 .timeline-item {
@@ -46,16 +47,16 @@ body.dark .timeline::before {
   top: 0;
   width: 12px;
   height: 12px;
-  background: #3B82F6;
+  background: var(--accent);
   border-radius: 50%;
   border: 3px solid var(--bg-light);
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.25);
 }
 
 body.dark .timeline-dot {
-  background: #3B82F6;
+  background: var(--accent-dark-theme);
   border-color: var(--bg-dark);
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 0 4px rgba(94, 234, 212, 0.3);
 }
 
 .timeline-content {
@@ -85,11 +86,12 @@ body.dark .timeline-content:hover {
 }
 
 .timeline-content h4 {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 1.15rem;
   margin-bottom: 0.5rem;
   color: var(--text-dark);
   font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 body.dark .timeline-content h4 {
@@ -97,7 +99,7 @@ body.dark .timeline-content h4 {
 }
 
 .company {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 600;
   margin-bottom: 0.25rem;
   color: var(--subtext);
@@ -108,15 +110,15 @@ body.dark .company {
 }
 
 .period {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 0.9rem;
-  color: var(--primary);
+  color: var(--accent);
   margin-bottom: 1rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 body.dark .period {
-  color: var(--primary-dark-theme);
+  color: var(--accent-dark-theme);
 }
 
 .timeline-content ul {
@@ -125,13 +127,14 @@ body.dark .period {
 }
 
 .timeline-content li {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Manrope', sans-serif;
   padding-left: 1.5rem;
   margin-bottom: 0.5rem;
   position: relative;
   line-height: 1.6;
   color: var(--subtext);
   font-size: 0.95rem;
+  font-weight: 400;
 }
 
 body.dark .timeline-content li {
@@ -142,12 +145,12 @@ body.dark .timeline-content li {
   content: '▹';
   position: absolute;
   left: 0;
-  color: var(--primary);
+  color: var(--accent);
   font-weight: bold;
 }
 
 body.dark .timeline-content li::before {
-  color: var(--primary-dark-theme);
+  color: var(--accent-dark-theme);
 }
 
 @media (max-width: 968px) {
